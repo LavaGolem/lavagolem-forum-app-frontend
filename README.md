@@ -8,7 +8,7 @@ This is React app and additional libraries used are as follows:
 - **Redux** for state managment: https://redux.js.org/ 
 - **Material-ui** for react as a deign library 
 - **Ramda** https://ramdajs.com/
-- **React router **
+- ** React router **
 
 ## Development 
 
@@ -33,7 +33,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Deployment
 
-Service is deployed to **Heroku **
+Service is deployed to ** Heroku **
 http://lavagolem-forum-ui.herokuapp.com/
 
 ## Features 
