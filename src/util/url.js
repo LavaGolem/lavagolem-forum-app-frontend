@@ -1,0 +1,5 @@
+export const questionsUrl = 'http://localhost:4000/questions'
+export const userDataUrl = 'http://localhost:4000/users/me'
+export const userRegisterUrl = 'http://localhost:4000/users/register'
+export const userLoginDataUrl = 'http://localhost:4000/users/login'
+export const addNewQuestionUrl = 'http://localhost:4000/questions/new'
