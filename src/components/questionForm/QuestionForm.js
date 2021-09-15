@@ -8,13 +8,6 @@ const QuestionForm = ({addNewQuestion, userData}) => {
     const [questionDescription, setQuestionDescription] = useState('')
     const dispatch = useDispatch();
 
-    const addTitle = (event) => {
-        setQuestionTitle(event.target.value)
-    }
-
-    const addDescription = (event) => {
-        setQuestionDescription(event.target.value)
-    }
     const saveQuestion = () => {
         const question = {
             title: questionTitle,
@@ -22,8 +15,7 @@ const QuestionForm = ({addNewQuestion, userData}) => {
         }
         dispatch(addQuestionAction(question));
         addNewQuestion();
-        setQuestionTitle('')
-        setQuestionDescription('')
+        discardQuestion()
     }
     const discardQuestion = () => {
         setQuestionTitle('')
@@ -38,7 +30,7 @@ const QuestionForm = ({addNewQuestion, userData}) => {
             InputProps={{disableUnderline: true, style: {margin: 10}}}
             placeholder="Start typing question..."
             style={{backgroundColor: 'white', width: '100%', borderRadius: 15}}
-            onChange={addTitle}
+            onChange={e => setQuestionTitle(e.target.value)}
             value={questionTitle}
         />
         {questionTitle !== '' && (
@@ -49,7 +41,7 @@ const QuestionForm = ({addNewQuestion, userData}) => {
                            placeholder="Write description"
                            value={questionDescription}
                            style={{backgroundColor: 'white', width: '100%', borderRadius: 15}}
-                           onChange={addDescription}
+                           onChange={e => setQuestionDescription(e.target.value)}
                 />
                 <Box display={'flex'} justifyContent={'flex-end'} marginTop={2}>
                     <Button variant="contained" color="primary" style={{marginRight: 10}} onClick={saveQuestion}>

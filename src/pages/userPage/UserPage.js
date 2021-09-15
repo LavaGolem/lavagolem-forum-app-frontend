@@ -1,4 +1,4 @@
-import {Box, TextField, Typography} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
@@ -16,11 +16,10 @@ const UserPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const user = window.localStorage.getItem('user');
         dispatch(getUserData());
     }, []);
 
-    const {userData, userDataError} = useSelector(selectUserData());
+    const {userData} = useSelector(selectUserData());
 
     if (R.isEmpty(userData)) {
         return <Loader/>

@@ -3,6 +3,7 @@ import {Box, Button, TextField} from "@material-ui/core";
 import {useState} from "react";
 import {useHistory} from "react-router";
 import {requestUserLogin, requestUserRegister} from "../../services/UserService";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -20,6 +21,8 @@ const RegisterPage = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loginEmail, setLoginEmail] = useState('')
+    const [loginPassword, setLoginPassword] = useState('')
 
     const registerUser = () => {
         const user = {
@@ -28,34 +31,41 @@ const RegisterPage = () => {
             email: email,
             password: password
         }
-        requestUserRegister(user);
-        history.push('/')
+        const response = requestUserRegister(user);
+        if (response) {
+            history.push('/')
+        }
     }
     const loginUser = () => {
         const user = {
-            email: email,
-            password: password
+            email: loginEmail,
+            password: loginPassword
         }
-        requestUserLogin(user);
+        const response = requestUserLogin(user);
+        if (response) {
+            history.push('/')
+        }
     }
 
     return <Box className={classes.background} display={'flex'}>
-        <Box style={{backgroundColor: 'white'}} padding={2} borderRadius={15} margin={10} display={'flex'}
+        <Box style={{backgroundColor: 'white', width: '100%'}} padding={2} margin={5} borderRadius={15} display={'flex'}
              flexDirection={'column'}>
-            <TextField label={'First name'} value={firstName} onChange={e => setFirstName(e.target.value)}/>
-            <TextField label={'Last name'} value={lastName} onChange={e => setLastName(e.target.value)}/>
-            <TextField label={'Email'} value={email} onChange={e => setEmail(e.target.value)}/>
-            <TextField label={'Password'} type="password" value={password}
+            <Typography variant={'h5'}>Register</Typography>
+            <TextField label={'First name'} onChange={e => setFirstName(e.target.value)}/>
+            <TextField label={'Last name'} onChange={e => setLastName(e.target.value)}/>
+            <TextField label={'Email'} onChange={e => setEmail(e.target.value)}/>
+            <TextField label={'Password'} type="password"
                        onChange={e => setPassword(e.target.value)}/>
             <Button onClick={registerUser}>Register</Button>
 
         </Box>
-        <Box style={{backgroundColor: 'white'}} padding={2} borderRadius={15} margin={10} display={'flex'}
+        <Box style={{backgroundColor: 'white', width: '100%'}} padding={2} margin={5} borderRadius={15} display={'flex'}
              flexDirection={'column'}>
+            <Typography variant={'h5'}>Login</Typography>
 
-            <TextField label={'Email'} value={email} onChange={e => setEmail(e.target.value)}/>
-            <TextField label={'Password'} type="password" value={password}
-                       onChange={e => setPassword(e.target.value)}/>
+            <TextField label={'Email'} onChange={e => setLoginEmail(e.target.value)}/>
+            <TextField label={'Password'} type="password"
+                       onChange={e => setLoginPassword(e.target.value)}/>
             <Button onClick={loginUser}>Login</Button>
 
         </Box>

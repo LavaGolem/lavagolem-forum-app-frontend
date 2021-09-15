@@ -1,6 +1,6 @@
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
-import {Box, Grid} from "@material-ui/core";
+import {Box} from "@material-ui/core";
 import React from "react";
 
 const ToggleContent = () => {

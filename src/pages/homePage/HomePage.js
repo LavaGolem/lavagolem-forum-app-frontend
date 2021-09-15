@@ -24,7 +24,7 @@ const HomePage = () => {
         dispatch(getQuestions());
     }, []);
 
-    const {questions, questionsError} = useSelector(selectQuestions());
+    const {questions} = useSelector(selectQuestions());
     return <>
         <Box className={classes.background}>
             <Grid container>

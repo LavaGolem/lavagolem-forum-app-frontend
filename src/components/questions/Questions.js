@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import {Box, Grid, Link} from "@material-ui/core";
+import {Box} from "@material-ui/core";
 import Section from "../section/Section";
 import {ThumbDown, ThumbUp} from "@material-ui/icons";
 import Loader from "../loader/Loader";
@@ -32,7 +32,7 @@ function Questions({questions}) {
     return (<List className={classes.root}>
             {questions.map(question => <Section key={question.id}>
                 <ListItem alignItems="flex-start" style={{paddingTop: 0, cursor:'pointer'}}
-                          onClick={() => history.push(`/question/${question.id}`)}>
+                          onClick={() => history.push( `/question/${question.id}`, {state: {question: question}})}>
                     <Box display="flex" flexDirection="column">
                         <Box display="flex" flexDirection="row">
                             <ListItemAvatar>
