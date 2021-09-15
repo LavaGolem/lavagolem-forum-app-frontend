@@ -1,5 +1,7 @@
-export const questionsUrl = 'http://localhost:4000/questions'
-export const userDataUrl = 'http://localhost:4000/users/me'
-export const userRegisterUrl = 'http://localhost:4000/users/register'
-export const userLoginDataUrl = 'http://localhost:4000/users/login'
-export const addNewQuestionUrl = 'http://localhost:4000/questions/new'
+const baseApiURL = process.env.REACT_APP_API_URL
+
+export const questionsUrl = baseApiURL + 'questions'
+export const userDataUrl = baseApiURL + 'users/me'
+export const userRegisterUrl = baseApiURL + 'users/register'
+export const userLoginDataUrl = baseApiURL + 'users/login'
+export const addNewQuestionUrl = baseApiURL + 'questions/new'
