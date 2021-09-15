@@ -8,6 +8,7 @@ This is React app and additional libraries used are as follows:
 - **Redux** for state managment: https://redux.js.org/ 
 - **Material-ui** for react as a deign library 
 - **Ramda** https://ramdajs.com/
+- **React router **
 
 ## Development 
 
